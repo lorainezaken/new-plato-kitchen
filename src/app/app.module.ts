@@ -16,9 +16,12 @@ export const firebaseConfig = environment.firebaseConfig;
     ItemComponent
   ],
   imports: [
-    BrowserModule,AngularFireModule.initializeApp(firebaseConfig),AngularFireModule
+    BrowserModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule
   ],
-  providers: [AngularFirestore],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

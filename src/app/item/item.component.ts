@@ -4,17 +4,6 @@ import { Observable } from "rxjs/Observable";
 import { Order, Meal, Dish } from '../order';
 import { AngularFireModule } from 'angularfire2';
 
-
-
-export class DishesObj {
-  dish: DisheObj;
-}
-export class DisheObj {
-  description: string;
-  status:string;
-}
-
-
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
@@ -42,7 +31,7 @@ export class ItemComponent implements OnInit {
     rests: Observable<any[]>;
     snapshot:any;
 
-    test:DishesObj;
+    test:any;
   //meal = {dish1:{name:"mixed Burger 300 gr", status:"new"},dish2:{name:"coca cola", status:"new"},dish3:{name:"chicken Burger 300 gr", status:"new"}};
 
   constructor(private afs: AngularFirestore) {
@@ -104,7 +93,7 @@ export class ItemComponent implements OnInit {
     this.orderDocItem = this.afs.collection("/Rests/RestID/Orders").doc("uHN9bSdMnEMpFqVpzdNX").valueChanges();
      this.orderDocItem
      .subscribe(data => {
-       this.test =  <DishesObj>JSON.parse(JSON.stringify(data));
+       this.test =  data;
        console.log(this.test);
     })
     //console.log(" nana--> ",this.orderDocItem); 
